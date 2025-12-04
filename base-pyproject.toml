@@ -1,0 +1,48 @@
+dependencies = [
+    "sentry-sdk>=2.32",
+    "gunicorn>=23.0",
+    "orjson>=3.11",
+    "httpx>=0.28",
+]
+
+[dependency-groups]
+dev = [
+    "ipython>=9.8",
+    "safety>=3.7",
+    "coverage>=7.12",
+    "factory-boy>=3.3",
+    "Faker>=32",
+    "pytest>=8.4",
+    "pytest-asyncio>=1.3",
+    "pytest-clarity>=1.0",
+    "pytest-cov>=7.0",
+    "pytest-flakefinder>=1.1",
+    "pytest-freezer>=0.4",
+    "pytest-mock>=3.15",
+    "pytest-randomly>=4.0",
+    "pytest-repeat>=0.9",
+    "pytest-replay>=1.6",
+    "pytest-sugar>=1.1",
+    "pytest-split>=0.10",
+    "pytest-deadfixtures>=2.2",
+    "pytest-timeouts>=1.2",
+    "assertpy>=1.1",
+    "responses>=0.25",
+    "respx>=0.22",
+]
+
+[tool.coverage.run]
+relative_files = true
+concurrency = ["thread"]
+
+[tool.coverage.report]
+sort = "cover"
+skip_covered = true
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::pytest.PytestUnraisableExceptionWarning",
+]
+asyncio_mode = "auto"
+asyncio_default_test_loop_scope = "session"
+asyncio_default_fixture_loop_scope = "session"

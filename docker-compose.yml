@@ -1,0 +1,50 @@
+version: "3.9"
+
+volumes:
+  postgres_db_data:
+    name: "postgres_db_data"
+  redis_data:
+    name: "redis_data"
+
+networks:
+  enduro_app_network:
+    name:
+      "enduro_app_network"
+    ipam:
+      config:
+        - subnet: 200.10.0.0/24
+
+services:
+
+  db:
+    image: postgres:18.1
+    container_name: "postgres_db"
+    restart: unless-stopped
+    networks:
+      enduro_app_network:
+        ipv4_address: 200.20.0.10
+    volumes:
+      - postgres_db_data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    env_file: settings/environments/.env
+    expose:
+      - "5433"
+    ports:
+      - "5433:5432"
+
+  dragonfly:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly
+    container_name: "redis"
+    restart: unless-stopped
+    networks:
+      enduro_app_network:
+        ipv4_address: 200.20.0.11
+    volumes:
+      - redis_data:/data
+    env_file: settings/environments/.env
+    expose:
+      - "6379"
+    ports:
+      - "6379:6379"
+    ulimits:
+      memlock: -1

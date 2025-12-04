@@ -1,0 +1,73 @@
+[project]
+name = "enduro_app"
+version = "0.1.0"
+description = "App for register MTB enduro challenges base"
+authors = ["Dmitry Afanasiev <balshbox@mail.ru>"]
+requires-python = ">=3.14"
+
+[dependency-groups]
+dev = [
+    "toml-union>=1.0.4",
+    "black>=25.11",
+    "flake8>=7.3",
+    "lefthook>=2.0",
+    "mypy>=1.19",
+    "ruff>=0.14",
+    "types-bleach>=6.2.0.20250809",
+    "types-python-dateutil>=2.9.0.20250516",
+    "uuid-utils>=0.11.0",
+]
+
+[tool.ruff]
+lint.extend-select = ["F", "I", "PL", "E", "W", "C4", "PT", "B", "T10", "SIM", "TID", "T20", "PGH", "S", "RET", "ERA", "PIE", "UP", "ASYNC", "ISC", "PERF", "DTZ", "TRY", "C90"]
+lint.ignore = ["S105", "S106", "S324", "PGH003", "TRY003", "TRY004", "PT001", "PT023", "ASYNC109", "PLR0912", "PLC0206"]
+line-length = 120
+output-format="concise"
+
+[tool.ruff.lint.pylint]
+max-args = 15
+max-statements = 50
+
+[tool.ruff.lint.flake8-pytest-style]
+parametrize-names-type = "csv"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+[tool.ruff.lint.isort]
+force-wrap-aliases = true
+combine-as-imports = true
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"
+
+[tool.black]
+line-length = 120
+target-version = ['py314']
+
+[tool.mypy]
+python_version = "3.14"
+
+# Mypy configuration:
+# https://mypy.readthedocs.io/en/latest/config_file.html
+allow_redefinition = false
+namespace_packages = true
+check_untyped_defs = true
+disallow_untyped_decorators = false
+disallow_any_explicit = false
+disallow_any_generics = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+ignore_errors = false
+ignore_missing_imports = true
+implicit_reexport = false
+local_partial_types = true
+strict_optional = true
+strict_equality = true
+show_error_codes = true
+no_implicit_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unreachable = true
+warn_no_return = true
