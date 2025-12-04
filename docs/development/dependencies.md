@@ -12,3 +12,15 @@
 source .venv/bin/activate
 ```
 - запустить команду `make admin-dependencies-file`
+
+## Активация зависимостей админки
+
+```bash
+cd admin && source .venv/bin/activate
+```
+
+## Просмотр установленных зависимостей
+
+```bash
+uv pip freeze
+```
