@@ -62,6 +62,9 @@ filterwarnings = [ "ignore::pytest.PytestUnraisableExceptionWarning",]
 extend-select = [ "F", "I", "PL", "E", "W", "C4", "PT", "B", "T10", "SIM", "TID", "T20", "PGH", "S", "RET", "ERA", "PIE", "UP", "ASYNC", "ISC", "PERF", "DTZ", "TRY", "C90",]
 ignore = [ "S105", "S106", "S324", "PGH003", "TRY003", "TRY004", "PT001", "PT023", "ASYNC109", "PLR0912", "PLC0206",]
 
+[tool.ruff.lint.per-file-ignores]
+"*tests/*" = ["S101", "PLR2004", "PLR0913"]
+
 [tool.ruff.lint.flake8-pytest-style]
 parametrize-names-type = "csv"
 
@@ -74,9 +77,6 @@ force-wrap-aliases = true
 
 [tool.ruff.lint.mccabe]
 max-complexity = 15
-
-[tool.ruff.lint.per-file-ignores]
-"app/tests/*" = [ "S101", "PLR2004", "PLR0913",]
 
 [tool.ruff.lint.pylint]
 max-args = 15

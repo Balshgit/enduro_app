@@ -12,6 +12,7 @@ from django.db import transaction
 from django.test.client import Client
 from infra.conf.logging import SENSITIVE_FIELDS, RedactSensitive
 from structlog.testing import LogCapture
+
 from tests.integration.factories.user_factories import StaffUserFactory, SuperUserFactory
 from tests.integration.utils import OtpCompatibleWebTestMixin, WebTestApp
 
