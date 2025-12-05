@@ -1,9 +1,9 @@
-from infra.conf.boilerplate import BASE_DIR
+from infra.conf.boilerplate import CONTENT_DIR
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [f"{BASE_DIR}/templates"],
+        "DIRS": [CONTENT_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

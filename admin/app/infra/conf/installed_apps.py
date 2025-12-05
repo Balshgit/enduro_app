@@ -1,4 +1,8 @@
-APPS = ("infra",)
+APPS = (
+    "infra",
+    "core.main",
+    "core.accounts",
+)
 
 THIRD_PARTY_APPS = (
     "django.contrib.admin",
@@ -10,11 +14,12 @@ THIRD_PARTY_APPS = (
     "django_object_actions",
     "django_admin_inline_paginator",
     "django.contrib.humanize",
+    # Vendor apps
     "admin_extra_buttons",
-    "rangefilter",
+    "bootstrap4",
     "django_admin_filters",
     "import_export",
-    "core.accounts",
+    "rangefilter",
 )
 
 INSTALLED_APPS = APPS + THIRD_PARTY_APPS

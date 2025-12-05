@@ -1,3 +1,4 @@
+from core.main.views import ChangeLanguageView, IndexPageView
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -6,6 +7,10 @@ from infra.conf.boilerplate import ADMIN_URL
 
 urlpatterns = [
     path(ADMIN_URL, admin.site.urls),
+    path("", IndexPageView.as_view(), name="index"),
+    path("i18n/", include("django.conf.urls.i18n")),
+    path("language/", ChangeLanguageView.as_view(), name="change_language"),
+    path("accounts/", include("core.accounts.urls", namespace="accounts")),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

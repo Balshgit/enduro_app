@@ -24,6 +24,8 @@ _base_settings = (
     "conf/static.py",
     "conf/storage.py",
     "conf/templates.py",
+    "conf/auth.py",
+    "conf/email.py",
 )
 
 if DEBUG and env("STAGE", str, "dev") == "dev":
