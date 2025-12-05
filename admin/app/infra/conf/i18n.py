@@ -1,0 +1,3 @@
+LANGUAGE_CODE = "ru"
+USE_L10N = False
+USE_I18N = True
