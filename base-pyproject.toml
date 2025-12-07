@@ -1,3 +1,4 @@
+[project]
 dependencies = [
     "sentry-sdk>=2.32",
     "gunicorn>=23.0",

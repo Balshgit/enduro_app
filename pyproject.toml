@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "App for register MTB enduro challenges base"
 authors = ["Dmitry Afanasiev <balshbox@mail.ru>"]
 requires-python = ">=3.14"
+package-mode = "false"
 
 [dependency-groups]
 dev = [

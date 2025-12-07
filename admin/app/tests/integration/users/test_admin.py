@@ -5,7 +5,6 @@ import pytest
 from django.contrib.auth.models import User
 from django.test.client import Client
 from django.urls import reverse
-
 from tests.integration.factories.user_factories import (
     PermissionFactory,
     StaffUserFactory,
