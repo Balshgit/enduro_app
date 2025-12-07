@@ -22,14 +22,24 @@ WORKDIR /app/
 # It is important to use the image that matches the builder, as the path to the
 # Python executable must be the same, e.g., using `python:3.11-slim-bookworm`
 # will fail.
+
+# create user enduro
+RUN mkdir /home/enduro \
+      && groupadd -r enduro && useradd -d /home/enduro -r -g enduro enduro \
+      && chown enduro:enduro -R /home/enduro
+
 # Copy the application from the builder
 COPY --from=builder --chown=enduro:enduro /app/ /app
 COPY . .
+
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 RUN chmod +x /app/docker/docker-entrypoint.sh
+
 USER enduro
-ENTRYPOINT ["/app/docker/docker-entrypoint.sh"]
+
 EXPOSE 8080
 WORKDIR /app/app/
+
+ENTRYPOINT ["/app/docker/docker-entrypoint.sh"]
 CMD ["help"]

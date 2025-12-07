@@ -54,7 +54,7 @@ services:
     container_name: "enduro_admin"
     hostname: "enduro_admin"
     image: "enduro_admin:latest"
-    user: "1001"
+    user: "enduro"
     build:
       context: ./admin
       dockerfile: docker/Dockerfile
