@@ -48,3 +48,26 @@ services:
       - "6379:6379"
     ulimits:
       memlock: -1
+
+
+  admin:
+    container_name: "enduro_admin"
+    hostname: "enduro_admin"
+    image: "enduro_admin:latest"
+    user: "enduro"
+    build:
+      context: ./admin
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    environment:
+      - STAGE=${STAGE:-production}
+      - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE:-infra.settings}
+    depends_on:
+      - db
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      enduro_app_network:
+        ipv4_address: 200.10.0.12
+    expose:
+      - "8080"

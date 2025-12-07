@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "App for register MTB enduro challenges base"
 authors = ["Dmitry Afanasiev <balshbox@mail.ru>"]
 requires-python = ">=3.14"
+package-mode = "false"
 
 [dependency-groups]
 dev = [
@@ -24,6 +25,9 @@ lint.extend-select = ["F", "I", "PL", "E", "W", "C4", "PT", "B", "T10", "SIM", "
 lint.ignore = ["S105", "S106", "S324", "PGH003", "TRY003", "TRY004", "PT001", "PT023", "ASYNC109", "PLR0912", "PLC0206"]
 line-length = 120
 output-format="concise"
+
+[tool.ruff.lint.per-file-ignores]
+"*tests/*" = ["S101", "PLR2004", "PLR0913"]
 
 [tool.ruff.lint.pylint]
 max-args = 15

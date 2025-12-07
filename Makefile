@@ -11,7 +11,7 @@ RESET  := $(shell tput -Txterm sgr0)
 API_TARGETS = api/app api/tests api/settings
 ADMIN_TARGETS = admin/app
 PYTHON_TARGETS = $(API_TARGETS) $(ADMIN_TARGETS)
-BASE_PYPROJECT_FILES = pyproject.toml api-pyproject.toml
+BASE_PYPROJECT_FILES = pyproject.toml base-pyproject.toml
 
 ## Отформатировать код и исправить простые ошибки
 format:

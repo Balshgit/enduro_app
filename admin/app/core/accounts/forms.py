@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from typing import Any
 
+from core.accounts.models import Activation
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -15,8 +16,6 @@ from django.forms import (
 )
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-
-from app.core.accounts.models import Activation
 
 
 class UserCacheMixin:
